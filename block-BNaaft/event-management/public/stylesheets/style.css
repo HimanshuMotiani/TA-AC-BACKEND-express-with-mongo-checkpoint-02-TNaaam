@@ -1,0 +1,249 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+:root{
+--red:#ff4500;
+}
+.center{
+  text-align: center;
+}
+.space{
+  margin: 1rem 1rem;
+}
+.container{
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+body{
+  background-color: black;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header{
+  padding:1.4rem 0 ;
+}
+ul{
+margin-left: 1.4rem;
+font-size: 1.3rem;
+color: var(--red);
+}
+h1{
+  font-size: 2.8rem;
+  color: white;
+}
+.form-control{
+  font-size: 1.6rem;
+}
+.form{
+  border: 0.3rem solid red;
+    box-shadow: 0rem 0em 2rem 0.4rem white;
+    width: 60%;
+    padding: 1.6rem 1rem;
+    margin: 0 auto;
+}
+label{
+  display: block;
+  color: #cf5e5e;
+  font-size: 1.5rem;
+}
+.red{
+  color: var(--red);
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:rgb(128, 128, 128);
+  margin-left: 1rem;
+}
+.control{
+  width: 90%;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  margin: .6rem 0;
+}
+.form-heading{
+  color: white;
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+    text-align: center;
+    border:none;
+}
+.button-div{
+  display: inline-block;
+}
+.button{
+  font-size: 1.4rem;
+  padding: 0.2rem 1rem;
+  background-color: darkgray;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+footer{
+  text-align: center;
+  color: var(--red);
+  font-size: 2rem;
+}
+footer p{
+  margin-top: 5rem;
+}
+aside{
+  flex: 0 1 28%;
+  box-shadow: 0rem 0rem 0.6rem 0.1rem red;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: space-between;
+}
+.h2-text{
+  color: white;
+  font-size: 2.4rem;
+}
+.h4-text{
+  color:var(--red);
+  font-size: 1.4rem;
+}
+.category{
+  margin: 1.4rem 0;
+  margin-bottom: 2.6rem;
+}
+.sort{
+  text-decoration: none;
+  color: blue;
+  padding: 0.4rem;
+  box-shadow: 0rem 0rem 0.9rem 0.2rem red;
+  margin-right: .3rem;
+}
+.sort-types{
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+.list{
+  flex: 0 1 68%;
+  margin-left: 2rem ;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.flex-start{
+align-items: flex-start;
+}
+.each-article{
+  border: 1px solid red;
+  box-shadow: 0rem 0rem 0.6rem 0.2rem red;
+  margin-right: 2rem;
+}
+.each-event{
+  color: blue;
+}
+a{
+  text-decoration: none;
+}
+.block{
+  display: block;
+  text-align: center;
+}
+.details-section{
+  background-color:var(--red);
+  margin: 0 auto;
+  color: black;
+  padding: 2.4rem;
+  width: 50%;
+}
+.h2-title{
+font-size: 1.4rem;
+font-weight: 700;
+}
+.margin{
+  margin: .6rem 0;
+}
+.button-detail{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 0.2rem 0.4rem;
+}
+h5{
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.remarks{
+  margin: 1rem 0;
+}
+.edit-remark{
+  background-color: var(--red);
+  width: 30%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.h4-remark{
+  font-size: 1.8rem;
+  color: black;
+  text-align: center;
+}
+.label{
+color: black;
+}
+.only-flex{
+  display: flex;
+}
+
+
+
