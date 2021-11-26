@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ea78916b51.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="flex header">
+            <h1>Event <span class="red">Management</span></h1>
+            <nav class="flex">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i>
+                    </li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="container flex flex-start">
+            <aside>
+                <h2 class="h2-text">Sort</h2>
+                <div class="category">
+                    <h4 class="h4-text">By Categories</h4>
+                    <div class="sort-types">
+                        <%uniqueCategories.forEach(ele=>{%>
+                            <a class="sort" href="/events/<%=ele%>/sortbycategory">
+                                <%=ele%>
+                            </a>
+                            <%})%>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4 class="h4-text">By Locations</h4>
+                    <div class="sort-types">
+                        <%uniqueLocations.forEach(ele=>{%>
+                            <a class="sort" href="/events/<%=ele%>/sortbylocation">
+                                <%=ele%>
+                            </a>
+                            <%})%>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4 class="h4-text">By Date</h4>
+                    <div class="sort-types">
+                        <a class="sort" href="/events/sortby/date">Sort by date</a>
+                    </div>
+                </div>
+                <div>
+                    <a class="button" href="/events"> All Events</a>
+                    <a class="button" href="/events/new">Add new event</a>
+                </div>
+            </aside>
+            <div class="list only-flex flex-wrap">
+                <%events.forEach(ele=>{%>
+                <article class="each-article">
+                    <div class="each-event">
+                            <div class="space block">
+                                <a href="/events/<%=ele.id%>">
+                                    <span class="red"><%=ele.title%></span>
+                                </a>
+                                <a class="space block" href="#">
+                                    <i class="fas fa-location-arrow"></i> <%=ele.location%>
+                                </a>
+                                <div>
+                                    <%ele.category.forEach(c=>{%>
+                                        <span class="red">#</span><a href="">
+                                            <%=c%>
+                                        </a>
+                                        <%})%>
+                                </div>
+                            </div>
+                    </div>
+                </article>
+                <%})%>
+            </div>
+        </section>
+    </main>
+    <footer class="container">
+        <p>&copy; Event management</p>
+    </footer>
+</body>
+
+</html>
+
+
+
+
+

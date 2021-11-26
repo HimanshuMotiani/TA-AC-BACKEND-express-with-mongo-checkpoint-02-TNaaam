@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ea78916b51.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="container">
+        <div class="flex header">
+            <h1 class="center">Event <span class="red">Management</span></h1>
+            <nav class="flex">
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.instagram.com"><i class="fab fa-instagram"></i>
+                    </li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="edit-remark">
+            <form action="/remarks/<%=remark.id%>/update" method="POST">
+                <h4 class="h4-remark">Edit Remark</h4>
+                <div>
+                    <label class="label">Name</label>
+                    <input type="text" name="author" class="control" placeholder="Enter name" value="<%=remark.author%>">
+                </div>
+                <div>
+                    <label class="label">Remark</label>
+                    <textarea type="text" name="content" class="control" placeholder="Enter remarks" value="<%=remark.content%>"></textarea>
+                </div>
+                <div>
+                    <input type="submit" class="button-detail" value="Update">
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
