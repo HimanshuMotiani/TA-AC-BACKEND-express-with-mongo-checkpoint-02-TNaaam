@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ea78916b51.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+        <header class="container">
+        <div class="flex header">
+            <h1 class="center">Event <span class="red">Management</span></h1>
+            <nav class="flex">
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.instagram.com"><i class="fab fa-instagram"></i>
+                    </li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero container">
+            <div class="form">
+                <h2 class="form-heading">Edit Information</h2>
+                <form method="POST" action="/events/<%=event.id%>/update" class="form-control">
+                    <fieldset>
+                        <div>
+                            <label>Title</label>
+                            <input type="text" name="title" class="control" placeholder="Enter Title"
+                                value="<%=event.title%>">
+                        </div>
+                        <div>
+                            <label>Summary</label>
+                            <textarea type="text" name="summary" class="control" placeholder="Enter Summary"
+                                ><%=event.summary%></textarea>
+                        </div>
+                        <div>
+                            <label>Host</label>
+                            <input type="text" name="host" class="control" placeholder="Enter Host"
+                                value="<%=event.host%>">
+                        </div>
+                        <div>
+                            <label>Start Date</label>
+                            <input type="date" name="start_date" class="control" placeholder="Enter Start Date"
+                                value="<%=startDate%>">
+                        </div>
+                        <div>
+                            <label>End Date</label>
+                            <input type="date" name="end_date" class="control" placeholder="Enter End Date"
+                                value="<%=endDate%>">
+                        </div>
+                        <div>
+                            <label>Category</label>
+                            <input type="text" name="category" class="control" placeholder="Enter Category spaces"
+                                value="<%=event.category%>">
+                        </div>
+                        <div>
+                            <label>Location</label>
+                            <input type="text" name="location" class="control" placeholder="Enter Location"
+                                value="<%=event.location%>">
+                        </div>
+                        <div class="button-div">
+                            <input type="submit" class="button" value="Update">
+                        </div>
+                        <div class="button-div">
+                            <a href="/events">
+                                <button class="button">Go to Event List</button>
+                            </a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="container">
+        <p>&copy; event management</p>
+    </footer>
+</body>
+
+</html>

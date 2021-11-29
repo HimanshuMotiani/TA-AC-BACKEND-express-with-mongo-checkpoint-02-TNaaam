@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ea78916b51.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="flex header">
+            <h1 class="center">Event <span class="red">Management</span></h1>
+            <nav class="flex">
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a class="red" href="https://www.instagram.com"><i class="fab fa-instagram"></i>
+                    </li></a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="container">
+            <div class="details-section">
+                <article>
+                    <div>
+                        <h2 class="h2-title">
+                            <%=event.title%>
+                        </h2>
+                    </div>
+                    <div class="margin">
+                        <i class="fas fa-location-arrow"></i>
+                        <%=event.location%>
+                            <span>#</span>
+                            <%=event.category%>
+                    </div>
+                    <div class="margin">
+                        <span>Hosted By:</span>
+                        <span>
+                            <%=event.host%>
+                        </span>
+                    </div>
+                    <div class="margin">
+                        <p><time>
+                                <%=startDate%><time> - <time>
+                                            <%=endDate%>
+                                        </time></p>
+                    </div>
+                    <div class="margin">
+                        <p>
+                            <%=event.summary%>
+                        </p>
+                    </div class="margin">
+                    <a href="/events/<%=event.id%>/edit">
+                        <button class="button-detail">Edit</button></a>
+                    <a href="/events/<%=event.id%>/delete">
+                        <button class="button-detail">Delete</button></a>
+                    <a href="/events"><button>Back to events</button></a>
+                    <hr>
+                </article>
+                <form action="/remarks/<%=event.id%>" method="POST">
+                    <h5>Remark</h5>
+                    <div>
+                        <input type="text" name="author" class="control" placeholder="Enter name">
+                    </div>
+                    <div>
+                        <textarea type="text" name="content" class="control" placeholder="Enter remarks"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" class="button-detail" value="Add">
+                    </div>
+                </form>
+                <div class="remarks">
+                    <%event.remarkId.forEach(ele=>{%>
+                        <div>
+                            <span>Posted By:</span><span><%=ele.author%></span>
+                        <div class="margin">
+                            <span>Comment:</span><span><%=ele.content%></span>
+                        </div>
+                            <a href="/remarks/<%=ele.id%>/likes"><i class="fas fa-thumbs-up"></i></a>
+                            <span>
+                                <%=ele.likes%>
+                            </span>
+                            <a href="/remarks/<%=ele.id%>/edit"><button class="button-detail">Edit</button></a>
+                            <a href="/remarks/<%=ele.id%>/delete"><button class="button-detail">Delete</button></a>
+                        </div>
+                    <%})%>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>
