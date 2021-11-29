@@ -169,9 +169,11 @@ aside{
   color: blue;
   padding: 0.4rem;
   box-shadow: 0rem 0rem 0.9rem 0.2rem red;
-  margin-right: .3rem;
+  margin: 0.6rem;
 }
 .sort-types{
+  display: flex;
+    flex-wrap: wrap;
   margin: 1rem 0;
   font-size: 1.2rem;
 }
@@ -189,6 +191,7 @@ align-items: flex-start;
   border: 1px solid red;
   box-shadow: 0rem 0rem 0.6rem 0.2rem red;
   margin-right: 2rem;
+  margin-bottom: 1.4rem;
 }
 .each-event{
   color: blue;

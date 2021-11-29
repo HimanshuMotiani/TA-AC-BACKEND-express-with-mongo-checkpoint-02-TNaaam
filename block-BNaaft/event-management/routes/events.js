@@ -3,6 +3,7 @@ var router = express.Router();
 var Event = require("../models/event")
 var Remark = require("../models/event")
 var lodash = require('lodash');
+var moment = require("moment");
 /* GET home page. */
 router.get('/new', function (req, res, next) {
     res.render('eventForm');
@@ -10,8 +11,9 @@ router.get('/new', function (req, res, next) {
 
 //form
 router.post('/', function (req, res, next) {
+    req.body.category = req.body.category.split(" ");
+    console.log(req.body);
     Event.create(req.body, (err, event) => {
-        req.body.category = req.body.category.split(" ");
         if (err) return next(err);
         res.redirect("/events")
     })
@@ -27,6 +29,7 @@ router.get('/', function (req, res, next) {
         var uniqueCategories = [...new Set(categories)];
         var locations = events.map(ele => { return ele.location });
         let uniqueLocations = [...new Set(locations)];
+        console.log(events,uniqueCategories,uniqueLocations);
         res.render("events", { events, uniqueCategories, uniqueLocations })
     })
 });
@@ -35,17 +38,21 @@ router.get('/', function (req, res, next) {
 router.get("/:id", (req, res, next) => {
     var id = req.params.id;
     Event.findById(id).populate("remarkId").exec((err, event) => {
+    const startDate = moment(event.start_date).format('MMM Do YY');
+    const endDate = moment(event.end_date).format('MMM Do YY');
         if (err) return next(err);
-        res.render("eventsDetail", { event })
+        res.render("eventsDetail", { event,startDate,endDate })
     })
 })
 //edit event
 router.get("/:id/edit", (req, res, next) => {
     var id = req.params.id;
     Event.findById(id, (err, event) => {
-        console.log(event);
+        const startDate = moment(event.start_date).format('MMM Do YY').replaceAll(' ', '-');
+        const endDate = moment(event.end_date).format('MMM Do YY').replaceAll(' ', '-');
         if (err) return next(err);
-        res.render("editEvent", { event })
+        console.log(startDate,endDate);
+        res.render("editEvent", { event,startDate,endDate })
     })
 })
 //update event
@@ -75,7 +82,7 @@ router.get("/:category/sortbycategory", (req, res, next) => {
     Event.find({ category: category }, (err, events) => {
         if (err) return next(err);
         Event.find({}, (err, event) => {
-            const categories = events.reduce((acc, ele) => {
+            const categories = event.reduce((acc, ele) => {
                 acc = acc.concat(ele.category);
                 return acc;
             }, []);
@@ -91,7 +98,7 @@ router.get("/:location/sortbylocation", (req, res, next) => {
     Event.find({ location: location }, (err, events) => {
         if (err) return next(err);
         Event.find({}, (err, event) => {
-            const categories = events.reduce((acc, ele) => {
+            const categories = event.reduce((acc, ele) => {
                 acc = acc.concat(ele.category);
                 return acc;
             }, []);
@@ -104,16 +111,17 @@ router.get("/:location/sortbylocation", (req, res, next) => {
 })
 
 //sort by date
-// router.get('/sortby/date', async (req, res, next) =>{
-//      var events = Event.find({}).sort({'start_date':1});
-//         const categories = events.reduce((acc, ele) => {
-//             acc = acc.concat(ele.category);
-//             return acc;
-//         }, []);
-//         var uniqueCategories = [...new Set(categories)];
-//         var locations = events.map(ele => { return ele.location });
-//         let uniqueLocations = [...new Set(locations)];
-//         res.render("events", { events, uniqueCategories,uniqueLocations})
-// })
+router.get('/sortby/date', async (req, res, next) =>{
+     Event.find({}).sort({'start_date':1}).exec((err,events)=>{
+        const categories = events.reduce((acc, ele) => {
+            acc = acc.concat(ele.category);
+            return acc;
+        }, []);
+        var uniqueCategories = [...new Set(categories)];
+        var locations = events.map(ele => { return ele.location });
+        let uniqueLocations = [...new Set(locations)];
+        res.render("events", { events, uniqueCategories,uniqueLocations})
+     })   
+})
 
 module.exports = router;
